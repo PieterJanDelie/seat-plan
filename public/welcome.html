@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Allsee-VIP Lounge</title>
+    <link rel="stylesheet" href="Style/welcome.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-text-container">
+        <img src="Photos/allsee-logo.png" alt="Back to home" class="logo" />
+        <div class="text">-VIP Lounge</div>
+      </div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="flash"></div>
+      <div class="border-line"></div>
+
+      <div class="welcome-text text" style="display: none">
+        <h1 id="welcome-message">Welcome</h1>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const serverIp = "192.168.56.1";
+      const socket = io(`http://${serverIp}:3000`);
+
+      socket.on("connect", () => {
+        console.log("Connected to server");
+      });
+
+      socket.on("showWelcome", (value) => {
+        console.log("showWelcome event received with value:", value);
+        const logoContainer = document.querySelector(".logo-text-container");
+        const welcomeText = document.querySelector(".welcome-text");
+        const welcomeMessage = document.getElementById("welcome-message");
+        welcomeMessage.textContent = `Welcome ${value}`;
+        logoContainer.style.display = "none";
+        welcomeText.style.display = "block";
+        setTimeout(() => {
+          welcomeText.style.display = "none";
+          logoContainer.style.display = "flex";
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>

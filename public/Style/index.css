@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+#barcodeInput {
+  position: absolute;
+  left: -9999px;
+}
+#seatImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+#circle {
+  background-color: #ffd500;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  z-index: 2;
+  top: 34.513%;
+  left: 66.306%;
+  position: absolute;
+  animation: pulse 2s infinite;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+  border: 1px black solid;
+  background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
+  background-size: cover;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: none;
+}

@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d0d0d;
+}
+
+.container {
+  position: relative;
+  width: 1080px;
+  height: 256px;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 2px solid #ffd500;
+  animation: glow 3s infinite alternate;
+}
+
+.logo-text-container {
+  display: flex;
+  align-items: center;
+  animation: textAnim 2s ease-in-out infinite;
+}
+
+.logo {
+  height: 72px;
+}
+
+.text {
+  font-family: "Oswald", sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: #ffd500;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes textAnim {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  from {
+    border-color: #ffd500;
+    box-shadow: 0 0 20px #ffd500, 0 0 40px #ffd500;
+  }
+  to {
+    border-color: #ffa500;
+    box-shadow: 0 0 30px #ffa500, 0 0 60px #ffa500;
+  }
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #ffd500;
+  animation: moveLine 3s infinite linear;
+}
+
+.line:nth-child(2) {
+  top: 25%;
+  animation-delay: 0.5s;
+}
+
+.line:nth-child(3) {
+  top: 15%;
+  animation-delay: 1.2s;
+}
+
+.line:nth-child(4) {
+  top: 75%;
+  animation-delay: 1.7s;
+}
+
+.line:nth-child(5) {
+  top: 85%;
+  animation-delay: 2.3s;
+}
+
+@keyframes moveLine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.flash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 215, 0, 0.2);
+  animation: flashAnim 4s infinite ease-in-out;
+}
+
+@keyframes flashAnim {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.border-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid rgba(255, 215, 0, 0.8);
+  animation: borderAnim 4s infinite ease-in-out;
+}
+
+@keyframes borderAnim {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.welcome-text {
+  font-size: 30px;
+  animation: textAnim 2s ease-in-out infinite;
+}
