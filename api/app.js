@@ -1,23 +1,17 @@
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
-const http = require("http");
 const socketIo = require("socket.io");
-var cors = require('cors')
+var cors = require('cors');
 require("dotenv").config();
 
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
 
-const port = 3000;
-
-app.use(cors())
-
-app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/welcome", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "welcome.html"));
+  res.sendFile(path.join(__dirname, "../public", "welcome.html"));
 });
 
 app.get("/seatCoordinates", async (req, res) => {
@@ -58,6 +52,4 @@ app.get("/seatCoordinates", async (req, res) => {
   }
 });
 
-server.listen(port, '0.0.0.0', () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+module.exports = app;
